@@ -5,6 +5,8 @@ import './App.css';
 import AppHeader from '../app-header/app-header';
 import SearchPanel from "../search-panel/search-panel";
 import PostStatusFilter from "../post-list-status-filter/post-status-filter";
+import PostList from "../post-list/post-list";
+import PostAddForm from "../post-add-form/post-add-form";
 
 export default class App extends Component {
     constructor(props) {
@@ -123,6 +125,13 @@ export default class App extends Component {
                         filter={filter}
                         onFilterSelect={this.onFilterSelect}/>
                 </div>
+                <PostList
+                    posts={visiblePosts}
+                    onDelete={this.deleteItem}
+                    onToggleImportant={this.onToggleImportant}
+                    onToggleLiked={this.onToggleLiked}/>
+                <PostAddForm
+                    onAdd={this.addItem}/>
             </div>
         )
     }
