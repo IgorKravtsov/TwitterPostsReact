@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import './App.css';
+
 
 import AppHeader from '../app-header/app-header';
-
-
-import './App.css';
+import SearchPanel from "../search-panel/search-panel";
+import PostStatusFilter from "../post-list-status-filter/post-status-filter";
 
 export default class App extends Component {
     constructor(props) {
@@ -115,6 +116,13 @@ export default class App extends Component {
         return (
             <div className="app">
                 <AppHeader liked={liked} allPosts={allPosts}/>
+                <div className="search-panel d-flex">
+                    <SearchPanel
+                        onUpdateSearch={this.onUpdateSearch}/>
+                    <PostStatusFilter
+                        filter={filter}
+                        onFilterSelect={this.onFilterSelect}/>
+                </div>
             </div>
         )
     }
